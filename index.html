@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0a0a14" />
+  <meta name="description" content="Grupo Teatro Família – Arte com propósito. Teatro com alma. Aparecida de Goiânia – GO." />
+  <title>Grupo Teatro Família — GTF</title>
+
+  <!-- ============================================================
+       FONTES — Google Fonts
+       Cormorant Garamond: serifada elegante para títulos
+       DM Sans: sans-serif moderna para corpo de texto
+       Se quiser trocar as fontes, edite as duas linhas abaixo.
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#inicio">Pular para o conteúdo</a>
+
+  <!-- ============================================================
+       HEADER — Barra de navegação fixa no topo
+       ============================================================
+       LOGO: Troque o src abaixo pelo caminho da sua logo.
+         Exemplo: src="Imagens/logo-gtf.jpg"
+       Se não tiver logo ainda, o emoji 🎭 aparece no lugar.
+       ============================================================ -->
+  <header class="topbar" id="topbar">
+    <div class="container topbar__inner">
+
+      <a class="brand" href="#inicio" aria-label="Grupo Teatro Família — início">
+        <!-- LOGO DO GRUPO: troque o src pela sua imagem -->
+        <!-- <img src="Imagens/logo-gtf.jpg" alt="Logo GTF" class="brand__logo" /> -->
+        <span class="brand__icon" aria-hidden="true">🎭</span>
+        <span class="brand__name">GTF</span>
+      </a>
+
+      <!-- Botão hambúrguer (só aparece no mobile) -->
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" id="nav-toggle">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="main-nav" aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#integrantes">Integrantes</a>
+        <a href="#espetaculos">Espetáculos</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#apoie">Apoie</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="topbar__cta">
+        <a class="btn btn--accent" href="#apoie">Apoie o GTF</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         SEÇÃO 1 — HERO (tela inicial)
+         ============================================================
+         IMAGEM DE FUNDO DO HERO:
+           No arquivo styles.css, procure por ".hero__bg" e adicione:
+             background-image: url('Imagens/foto-grupo.jpg');
+             background-size: cover;
+             background-position: center top;
+           Ou substitua a div abaixo por uma tag <img>.
+
+         POSTER (lado direito):
+           Troque a div class="poster" por:
+             <img src="Imagens/foto-grupo.jpg" class="poster" alt="Grupo GTF" />
+         ============================================================ -->
+    <section id="inicio" class="hero" aria-label="Apresentação do grupo">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="container hero__content">
+        <div class="hero__copy" data-reveal>
+          <p class="kicker">Teatro · Arte · Transformação</p>
+          <h1>
+            Arte que<br>
+            <em>transforma.</em><br>
+            Família que acolhe.
+          </h1>
+          <p class="lead">
+            Desde 2001, o Grupo Teatro Família leva o teatro e a mensagem de Cristo a quem mais precisa — com arte, amor e compromisso social.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#sobre">Conheça o grupo</a>
+            <a class="btn btn--outline" href="#espetaculos">Ver espetáculos</a>
+            <a class="btn btn--accent" href="#apoie">Apoie</a>
+          </div>
+
+          <!-- Destaque do espetáculo atual -->
+          <div class="spotlight" data-reveal>
+            <span class="spotlight__badge">Em cartaz</span>
+            <p class="spotlight__title">"Amor Universal"</p>
+            <p class="spotlight__desc">Uma jornada sobre o amor que transcende diferenças e une corações.</p>
+            <a class="spotlight__link" href="#espetaculos">Descobrir detalhes →</a>
+          </div>
+        </div>
+
+        <div class="hero__visual" data-reveal>
+          <!-- POSTER / VISUAL DO HERO
+               Para usar uma foto real, substitua toda a div.poster por:
+               <img src="Imagens/foto-grupo.jpg" class="poster" alt="Grupo Teatro Família" /> -->
+          <div class="poster" role="img" aria-label="Imagem do Grupo Teatro Família">
+            <div class="poster__inner">
+              <div class="poster__glow"></div>
+              <div class="poster__label">
+                <span class="poster__top">GRUPO TEATRO</span>
+                <span class="poster__mid">Família</span>
+                <span class="poster__bottom">Aparecida de Goiânia · GO</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Números de destaque -->
+          <div class="hero__stats">
+            <div class="stat"><span class="stat__num">24+</span><span class="stat__label">Anos</span></div>
+            <div class="stat"><span class="stat__num">4</span><span class="stat__label">Espetáculos</span></div>
+            <div class="stat"><span class="stat__num">11</span><span class="stat__label">Integrantes</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Role para baixo</span>
+        <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SEÇÃO 2 — SOBRE O GRUPO
+         ============================================================
+         Edite os textos dentro dos <p> abaixo para atualizar
+         as informações sobre o grupo.
+         ============================================================ -->
+    <section id="sobre" class="section">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <p class="section__tag">Quem somos</p>
+          <h2>Sobre o Grupo</h2>
+          <p class="section__sub">Arte com propósito. Teatro com alma.</p>
+        </div>
+
+        <div class="about__grid">
+          <div class="about__text" data-reveal>
+            <div class="card card--soft">
+              <h3>Quem Somos</h3>
+              <p>
+                Somos uma Associação sem fins lucrativos, sediada em Aparecida de Goiânia – GO, que tem o teatro como carro-chefe, mas trabalha as várias formas de arte. Nossa missão é transmitir os ensinamentos e exemplos do Cristo, tornando possível a transformação do ser — começando por nós e alcançando quem pudermos alcançar com as diversas formas da Arte. Nossa base é Espírita, mas acreditamos que os exemplos do Cristo são para todos.
+              </p>
+            </div>
+
+            <div class="card card--soft">
+              <h3>Nossa História</h3>
+              <p>
+                O GTF nasceu em 2001 e foi fundado oficialmente em 2015, a partir do sonho de Cláudia, Edilson e sua família de usar a arte como instrumento de transformação social. Ao longo de mais de duas décadas, crescemos de um pequeno grupo de amigos para uma associação formalizada com CNPJ desde 2023, com sede própria, projetos sociais permanentes e uma família que só aumenta.
+              </p>
+            </div>
+          </div>
+
+          <div class="mission" data-reveal>
+            <h3>Missão &amp; O que fazemos</h3>
+            <p class="mission__text">
+              Despertar na criança, no adolescente e no jovem, através da arte, o desejo de transformar a si mesmo e o meio em que vive.
+            </p>
+            <ul class="mission__list">
+              <li>Teatro, poesia e outras linguagens artísticas</li>
+              <li>Oficinas formativas e exercícios teatrais</li>
+              <li>Biblioteca Comunitária "Cláudia Anastácia"</li>
+              <li>Projeto Obra do Berço — apoio a mães e bebês</li>
+              <li>Mocidade Itinerante — evangelização e cultura</li>
+              <li>Apresentações em entidades filantrópicas e eventos espíritas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SEÇÃO 3 — INTEGRANTES
+         ============================================================
+         COMO ADICIONAR A FOTO DE CADA INTEGRANTE:
+           Dentro de cada <article class="member">, encontre a div
+           com class "member__photo" e substitua por:
+             <img src="Imagens/integrantes/NOME.jpg"
+                  class="member__photo"
+                  alt="Nome do integrante" />
+
+         COMO ADICIONAR MAIS INTEGRANTES:
+           Copie um bloco <article class="member"> completo e cole
+           antes do comentário "ADICIONAR INTEGRANTE" no final,
+           ajustando nome, função e foto.
+         ============================================================ -->
+    <section id="integrantes" class="section section--alt">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <p class="section__tag">Pessoas</p>
+          <h2>Nossa Família</h2>
+          <p class="section__sub">Cada pessoa, um palco. Cada palco, uma transformação.</p>
+        </div>
+
+        <div class="members__grid" data-reveal>
+
+          <!-- INTEGRANTE 1 -->
+          <article class="member">
+            <!-- FOTO: substitua a div abaixo por <img src="Imagens/integrantes/claudia.jpg" class="member__photo" alt="Cláudia Anastácia" /> -->
+            <div class="member__photo member__photo--1" aria-hidden="true"></div>
+            <div class="member__info">
+              <h3 class="member__name">Cláudia Anastácia</h3>
+              <p class="member__role">Fundadora · Direção Geral</p>
+            </div>
+          </article>
+
+          <!-- INTEGRANTE 2 -->
+          <article class="member">
+            <!-- FOTO: substitua por <img src="Imagens/integrantes/edilson.jpg" class="member__photo" alt="Edilson" /> -->
+            <div class="member__photo member__photo--2" aria-hidden="true"></div>
+            <div class="member__info">
+              <h3 class="member__name">Edilson</h3>
+              <p class="member__role">Cofundador · Ator</p>
+            </div>
+          </article>
+
+          <!-- INTEGRANTE 3 -->
+          <article class="member">
+            <!-- FOTO: substitua por <img src="Imagens/integrantes/josi.jpg" class="member__photo" alt="Tia Josi" /> -->
+            <div class="member__photo member__photo--3" aria-hidden="true"></div>
+            <div class="member__info">
+              <h3 class="member__name">Tia Josi</h3>
+              <p class="member__role">Atriz · Apoio Social</p>
+            </div>
+          </article>
+
+          <!-- INTEGRANTE 4 -->
+          <article class="member">
+            <!-- FOTO: substitua por <img src="Imagens/integrantes/bruno.jpg" class="member__photo" alt="Bruno" /> -->
+            <div class="member__photo member__photo--4" aria-hidden="true"></div>
+            <div class="member__info">
+              <h3 class="member__name">Bruno</h3>
+              <p class="member__role">Ator · Músico</p>
+            </div>
+          </article>
+
+          <!-- INTEGRANTE 5 -->
+          <article class="member">
+            <!-- FOTO: substitua por <img src="Imagens/integrantes/andressa.jpg" class="member__photo" alt="Andressa" /> -->
+            <div class="member__photo member__photo--5" aria-hidden="true"></div>
+            <div class="member__info">
+              <h3 class="member__name">Andressa</h3>
+              <p class="member__role">Atriz · Prof. de Teclado</p>
+            </div>
+          </article>
+
+          <!-- INTEGRANTE 6 -->
+          <article class="member">
+            <!-- FOTO: substitua por <img src="Imagens/integrantes/icaro.jpg" class="member__photo" alt="Ícaro" /> -->
+            <div class="member__photo member__photo--6" aria-hidden="true"></div>
+            <div class="member__info">
+              <h3 class="member__name">Ícaro</h3>
+              <p class="member__role">Ator</p>
+            </div>
+          </article>
+
+          <!-- INTEGRANTE 7 -->
+          <article class="member">
+            <!-- FOTO: substitua por <img src="Imagens/integrantes/iasmin.jpg" class="member__photo" alt="Iasmin" /> -->
+            <div class="member__photo member__photo--7" aria-hidden="true"></div>
+            <div class="member__info">
+              <h3 class="member__name">Iasmin</h3>
+              <p class="member__role">Atriz</p>
+            </div>
+          </article>
+
+          <!-- INTEGRANTE 8 -->
+          <article class="member">
+            <!-- FOTO: substitua por <img src="Imagens/integrantes/vitoria.jpg" class="member__photo" alt="Vitória" /> -->
+            <div class="member__photo member__photo--8" aria-hidden="true"></div>
+            <div class="member__info">
+              <h3 class="member__name">Vitória</h3>
+              <p class="member__role">Atriz</p>
+            </div>
+          </article>
+
+          <!-- INTEGRANTE 9 -->
+          <article class="member">
+            <!-- FOTO: substitua por <img src="Imagens/integrantes/iurlei.jpg" class="member__photo" alt="Iurlei" /> -->
+            <div class="member__photo member__photo--9" aria-hidden="true"></div>
+            <div class="member__info">
+              <h3 class="member__name">Iurlei</h3>
+              <p class="member__role">Ator</p>
+            </div>
+          </article>
+
+          <!-- INTEGRANTE 10 -->
+          <article class="member">
+            <!-- FOTO: substitua por <img src="Imagens/integrantes/isadora.jpg" class="member__photo" alt="Isadora" /> -->
+            <div class="member__photo member__photo--10" aria-hidden="true"></div>
+            <div class="member__info">
+              <h3 class="member__name">Isadora</h3>
+              <p class="member__role">Atriz</p>
+            </div>
+          </article>
+
+          <!-- INTEGRANTE 11 -->
+          <article class="member">
+            <!-- FOTO: substitua por <img src="Imagens/integrantes/iandrei.jpg" class="member__photo" alt="Iandrei" /> -->
+            <div class="member__photo member__photo--11" aria-hidden="true"></div>
+            <div class="member__info">
+              <h3 class="member__name">Iandrei</h3>
+              <p class="member__role">Ator</p>
+            </div>
+          </article>
+
+          <!-- ➕ ADICIONAR MAIS INTEGRANTES: copie e cole o bloco abaixo
+          <article class="member">
+            <img src="Imagens/integrantes/nome.jpg" class="member__photo" alt="Nome" />
+            <div class="member__info">
+              <h3 class="member__name">Nome Completo</h3>
+              <p class="member__role">Função · Especialidade</p>
+            </div>
+          </article>
+          -->
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SEÇÃO 4 — ESPETÁCULOS
+         ============================================================
+         IMAGENS DOS ESPETÁCULOS:
+           Cada espetáculo tem:
+             • show__thumb → imagem pequena no card (aprox 400x250px)
+             • modal__cover → imagem grande no popup (aprox 720x300px)
+
+           Para adicionar imagem ao card, dentro de <article class="show">,
+           substitua a div class="show__thumb" por:
+             <img src="Imagens/espetaculos/NOME-card.jpg"
+                  class="show__thumb" alt="Nome do espetáculo" />
+
+           Para o popup, substitua a div class="modal__cover" por:
+             <img src="Imagens/espetaculos/NOME-modal.jpg"
+                  class="modal__cover" alt="Nome do espetáculo" />
+
+         COMO ADICIONAR NOVOS ESPETÁCULOS:
+           Copie um bloco <article class="show"> completo, cole antes
+           do fechamento de </div><!-- portfolio -->, e:
+           1. Mude o data-tag para a categoria (drama/comedia/poesia)
+           2. Atualize o texto do card e do modal
+           3. Troque as imagens
+           4. Adicione um botão de filtro se for nova categoria
+         ============================================================ -->
+    <section id="espetaculos" class="section">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <p class="section__tag">Portfólio</p>
+          <h2>Espetáculos</h2>
+          <p class="section__sub">Histórias que tocam, ensinam e transformam.</p>
+        </div>
+
+        <!-- Filtros de categoria -->
+        <div class="filters" aria-label="Filtrar espetáculos" data-reveal>
+          <button class="chip is-active" data-filter="todos" type="button">Todos</button>
+          <button class="chip" data-filter="drama" type="button">Drama</button>
+          <button class="chip" data-filter="comedia" type="button">Comédia</button>
+          <button class="chip" data-filter="poesia" type="button">Poesia</button>
+          <!-- Para adicionar nova categoria: <button class="chip" data-filter="musical" type="button">Musical</button> -->
+        </div>
+
+        <div class="portfolio" data-portfolio>
+
+          <!-- ══════════════════════════════════════════════════════
+               ESPETÁCULO 1 — Amor Universal
+               ══════════════════════════════════════════════════════ -->
+          <article class="show" data-tag="drama">
+            <button class="show__btn" type="button" data-open aria-haspopup="dialog" aria-label="Abrir detalhes de Amor Universal">
+              <!-- IMAGEM DO CARD: substitua por <img src="Imagens/espetaculos/amor-universal-card.jpg" class="show__thumb" alt="Amor Universal" /> -->
+              <div class="show__thumb show__thumb--1" aria-hidden="true"></div>
+              <div class="show__info">
+                <div class="show__meta"><span>2021</span><span class="dot">·</span><span>Drama</span></div>
+                <h3 class="show__title">Amor Universal</h3>
+                <p class="show__synopsis">Uma jornada sobre o amor que transcende diferenças e une corações.</p>
+                <span class="show__cta">Ver detalhes →</span>
+              </div>
+            </button>
+
+            <!-- POPUP / MODAL deste espetáculo -->
+            <dialog class="modal" data-modal aria-label="Detalhes de Amor Universal">
+              <div class="modal__card" role="document">
+                <button class="modal__close" type="button" data-close aria-label="Fechar popup">✕</button>
+                <!-- IMAGEM DO POPUP: substitua por <img src="Imagens/espetaculos/amor-universal-modal.jpg" class="modal__cover" alt="Amor Universal" /> -->
+                <div class="modal__cover modal__cover--1" aria-hidden="true"></div>
+                <div class="modal__body">
+                  <div class="modal__meta"><span>2021 · em cartaz</span><span class="chip chip--sm">Drama</span></div>
+                  <h3 class="modal__title">Amor Universal</h3>
+                  <p class="modal__text">
+                    "Amor Universal" é o espetáculo mais apresentado do GTF. A peça explora a ideia de que o amor verdadeiro — espiritual, fraternal e incondicional — é capaz de superar barreiras, preconceitos e distâncias. Com cenas poéticas e musicais, o espetáculo convida o público a refletir sobre suas próprias relações e sobre o poder transformador do amor cristão. Já foi apresentado em centros espíritas, encontros estaduais e congressos em todo o estado de Goiás.
+                  </p>
+                  <ul class="modal__details">
+                    <li><strong>Classificação:</strong> Livre</li>
+                    <li><strong>Temas:</strong> amor, fé, superação, espiritualidade</li>
+                    <li><strong>Apresentações:</strong> 1º CONFRARTE – Trindade (2023), 2ª CONFRARTE – Itumbiara (2025), Encontro Espírita de Santa Bárbara (2023)</li>
+                  </ul>
+                  <div class="modal__actions">
+                    <!-- Estes botões fecham o popup e navegam para a seção correta -->
+                    <a class="btn btn--accent" href="#agenda" data-modal-link>Ver agenda</a>
+                    <a class="btn btn--outline" href="#apoie" data-modal-link>Apoiar o grupo</a>
+                  </div>
+                </div>
+              </div>
+            </dialog>
+          </article>
+
+          <!-- ══════════════════════════════════════════════════════
+               ESPETÁCULO 2 — Aprendendo a Voar
+               ══════════════════════════════════════════════════════ -->
+          <article class="show" data-tag="drama">
+            <button class="show__btn" type="button" data-open aria-haspopup="dialog" aria-label="Abrir detalhes de Aprendendo a Voar">
+              <!-- IMAGEM DO CARD: <img src="Imagens/espetaculos/aprendendo-voar-card.jpg" class="show__thumb" alt="Aprendendo a Voar" /> -->
+              <div class="show__thumb show__thumb--2" aria-hidden="true"></div>
+              <div class="show__info">
+                <div class="show__meta"><span>2017</span><span class="dot">·</span><span>Drama</span></div>
+                <h3 class="show__title">Aprendendo a Voar</h3>
+                <p class="show__synopsis">Uma história sobre coragem, fé e a descoberta de que somos capazes de ir além.</p>
+                <span class="show__cta">Ver detalhes →</span>
+              </div>
+            </button>
+
+            <dialog class="modal" data-modal aria-label="Detalhes de Aprendendo a Voar">
+              <div class="modal__card" role="document">
+                <button class="modal__close" type="button" data-close aria-label="Fechar popup">✕</button>
+                <!-- IMAGEM DO POPUP: <img src="Imagens/espetaculos/aprendendo-voar-modal.jpg" class="modal__cover" alt="Aprendendo a Voar" /> -->
+                <div class="modal__cover modal__cover--2" aria-hidden="true"></div>
+                <div class="modal__body">
+                  <div class="modal__meta"><span>2017</span><span class="chip chip--sm">Drama</span></div>
+                  <h3 class="modal__title">Aprendendo a Voar</h3>
+                  <p class="modal__text">
+                    "Aprendendo a Voar" narra a jornada de quem, diante das dificuldades da vida, descobre que é possível superar o medo e alcançar novos horizontes. Com linguagem acessível e emotiva, o espetáculo fala diretamente ao coração de jovens e adultos que enfrentam dúvidas, inseguranças e recomeços. A peça foi apresentada no Posto de Auxílio Chico Xavier e no Núcleo de Fraternidade Espírita Irmã Meimei.
+                  </p>
+                  <ul class="modal__details">
+                    <li><strong>Classificação:</strong> Livre</li>
+                    <li><strong>Temas:</strong> crescimento pessoal, coragem, fé, recomeço</li>
+                  </ul>
+                  <div class="modal__actions">
+                    <a class="btn btn--accent" href="#agenda" data-modal-link>Ver agenda</a>
+                    <a class="btn btn--outline" href="#contato" data-modal-link>Falar com o grupo</a>
+                  </div>
+                </div>
+              </div>
+            </dialog>
+          </article>
+
+          <!-- ══════════════════════════════════════════════════════
+               ESPETÁCULO 3 — O Besouro que não Acreditava em Deus
+               ══════════════════════════════════════════════════════ -->
+          <article class="show" data-tag="comedia">
+            <button class="show__btn" type="button" data-open aria-haspopup="dialog" aria-label="Abrir detalhes de O Besouro">
+              <!-- IMAGEM DO CARD: <img src="Imagens/espetaculos/besouro-card.jpg" class="show__thumb" alt="O Besouro que não Acreditava em Deus" /> -->
+              <div class="show__thumb show__thumb--3" aria-hidden="true"></div>
+              <div class="show__info">
+                <div class="show__meta"><span>2018</span><span class="dot">·</span><span>Comédia</span></div>
+                <h3 class="show__title">O Besouro que não Acreditava em Deus</h3>
+                <p class="show__synopsis">A história de um pequeno besouro que questiona, duvida e, no final, encontra algo maior que si mesmo.</p>
+                <span class="show__cta">Ver detalhes →</span>
+              </div>
+            </button>
+
+            <dialog class="modal" data-modal aria-label="Detalhes de O Besouro">
+              <div class="modal__card" role="document">
+                <button class="modal__close" type="button" data-close aria-label="Fechar popup">✕</button>
+                <!-- IMAGEM DO POPUP: <img src="Imagens/espetaculos/besouro-modal.jpg" class="modal__cover" alt="O Besouro" /> -->
+                <div class="modal__cover modal__cover--3" aria-hidden="true"></div>
+                <div class="modal__body">
+                  <div class="modal__meta"><span>2018</span><span class="chip chip--sm">Comédia</span></div>
+                  <h3 class="modal__title">O Besouro que não Acreditava em Deus</h3>
+                  <p class="modal__text">
+                    Com humor e leveza, "O Besouro que não Acreditava em Deus" conta a história de um inseto cheio de certezas que vai sendo desafiado pela vida a olhar além do que seus olhos podem ver. A peça usa o universo lúdico dos animais para abordar, de forma acessível e divertida, temas como fé, ceticismo, humildade e espiritualidade. Um dos espetáculos mais apresentados pelo GTF, levado ao 34º Congresso Espírita do Estado de Goiás e ao CEVAM.
+                  </p>
+                  <ul class="modal__details">
+                    <li><strong>Classificação:</strong> Livre</li>
+                    <li><strong>Temas:</strong> fé, humor, descoberta, espiritualidade</li>
+                    <li><strong>Apresentações:</strong> 34º Congresso Espírita do Estado de Goiás (2018), CEVAM – Goiânia (2021)</li>
+                  </ul>
+                  <div class="modal__actions">
+                    <a class="btn btn--accent" href="#agenda" data-modal-link>Ver agenda</a>
+                    <a class="btn btn--outline" href="#galeria" data-modal-link>Ver galeria</a>
+                  </div>
+                </div>
+              </div>
+            </dialog>
+          </article>
+
+          <!-- ══════════════════════════════════════════════════════
+               ESPETÁCULO 4 — Quadros e Poesias
+               ══════════════════════════════════════════════════════ -->
+          <article class="show" data-tag="poesia">
+            <button class="show__btn" type="button" data-open aria-haspopup="dialog" aria-label="Abrir detalhes de Quadros e Poesias">
+              <!-- IMAGEM DO CARD: <img src="Imagens/espetaculos/quadros-poesias-card.jpg" class="show__thumb" alt="Quadros e Poesias" /> -->
+              <div class="show__thumb show__thumb--4" aria-hidden="true"></div>
+              <div class="show__info">
+                <div class="show__meta"><span>2019 · recorrente</span><span class="dot">·</span><span>Poesia</span></div>
+                <h3 class="show__title">Quadros e Poesias</h3>
+                <p class="show__synopsis">Cenas vivas, palavras que tocam — uma celebração da poesia espírita em cena.</p>
+                <span class="show__cta">Ver detalhes →</span>
+              </div>
+            </button>
+
+            <dialog class="modal" data-modal aria-label="Detalhes de Quadros e Poesias">
+              <div class="modal__card" role="document">
+                <button class="modal__close" type="button" data-close aria-label="Fechar popup">✕</button>
+                <!-- IMAGEM DO POPUP: <img src="Imagens/espetaculos/quadros-poesias-modal.jpg" class="modal__cover" alt="Quadros e Poesias" /> -->
+                <div class="modal__cover modal__cover--4" aria-hidden="true"></div>
+                <div class="modal__body">
+                  <div class="modal__meta"><span>2019 · recorrente</span><span class="chip chip--sm">Poesia</span></div>
+                  <h3 class="modal__title">Quadros e Poesias</h3>
+                  <p class="modal__text">
+                    "Quadros e Poesias" é um formato cênico especial que o GTF desenvolveu para eventos e encontros espíritas. São cenas curtas e independentes, inspiradas em poemas e ensinamentos da doutrina espírita, intercaladas com declamações e música. O resultado é uma experiência contemplativa e emotiva, que pode ser adaptada em duração e conteúdo conforme o evento. Apresentado no Distrito Allan Kardec, no Centro Espírita Allan Kardec e no CONEJE FEEGO.
+                  </p>
+                  <ul class="modal__details">
+                    <li><strong>Classificação:</strong> Livre</li>
+                    <li><strong>Temas:</strong> poesia, espiritualidade, reflexão, emoção</li>
+                  </ul>
+                  <div class="modal__actions">
+                    <a class="btn btn--accent" href="#agenda" data-modal-link>Ver agenda</a>
+                    <a class="btn btn--outline" href="#contato" data-modal-link>Convidar o grupo</a>
+                  </div>
+                </div>
+              </div>
+            </dialog>
+          </article>
+
+          <!-- ➕ ADICIONAR NOVO ESPETÁCULO: copie e cole o bloco abaixo antes deste comentário
+          <article class="show" data-tag="drama">
+            <button class="show__btn" type="button" data-open aria-haspopup="dialog" aria-label="Abrir detalhes de Nome do Espetáculo">
+              <img src="Imagens/espetaculos/nome-card.jpg" class="show__thumb" alt="Nome do Espetáculo" />
+              <div class="show__info">
+                <div class="show__meta"><span>ANO</span><span class="dot">·</span><span>Gênero</span></div>
+                <h3 class="show__title">Nome do Espetáculo</h3>
+                <p class="show__synopsis">Sinopse curta aqui.</p>
+                <span class="show__cta">Ver detalhes →</span>
+              </div>
+            </button>
+            <dialog class="modal" data-modal>
+              <div class="modal__card" role="document">
+                <button class="modal__close" type="button" data-close aria-label="Fechar popup">✕</button>
+                <img src="Imagens/espetaculos/nome-modal.jpg" class="modal__cover" alt="Nome do Espetáculo" />
+                <div class="modal__body">
+                  <div class="modal__meta"><span>ANO</span><span class="chip chip--sm">Gênero</span></div>
+                  <h3 class="modal__title">Nome do Espetáculo</h3>
+                  <p class="modal__text">Descrição completa aqui.</p>
+                  <ul class="modal__details">
+                    <li><strong>Classificação:</strong> Livre</li>
+                    <li><strong>Temas:</strong> tema1, tema2</li>
+                  </ul>
+                  <div class="modal__actions">
+                    <a class="btn btn--accent" href="#agenda" data-modal-link>Ver agenda</a>
+                  </div>
+                </div>
+              </div>
+            </dialog>
+          </article>
+          -->
+
+        </div><!-- /portfolio -->
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SEÇÃO 5 — GALERIA DE FOTOS
+         ============================================================
+         COMO ADICIONAR FOTOS:
+           Substitua cada div class="shot__img" por uma tag <img>.
+           Exemplo:
+             ANTES:
+               <div class="shot__img shot__img--1" aria-hidden="true"></div>
+             DEPOIS:
+               <img src="Imagens/galeria/foto-1.jpg"
+                    class="shot__img" alt="Ensaio do espetáculo Amor Universal" />
+
+         COMO ADICIONAR MAIS FOTOS:
+           Copie um bloco <button class="shot"> e cole antes do
+           comentário "ADICIONAR FOTO" no final da galeria.
+           Use shot--wide para fotos largas (paisagem)
+           Use shot--tall para fotos altas (retrato)
+           Use apenas shot para fotos padrão
+
+         LIGHTBOX: ao clicar em qualquer foto ela abre ampliada.
+         Isso funciona automaticamente — não precisa configurar nada.
+         ============================================================ -->
+    <section id="galeria" class="section section--alt">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <p class="section__tag">Memórias</p>
+          <h2>Galeria</h2>
+          <p class="section__sub">Bastidores, ensaios e momentos inesquecíveis.</p>
+        </div>
+
+        <div class="masonry" data-gallery data-reveal>
+
+          <!-- FOTO 1 (padrão) -->
+          <button class="shot" type="button" data-shot aria-label="Abrir foto 1">
+            <!-- Substitua por: <img src="Imagens/galeria/foto-1.jpg" class="shot__img" alt="Descrição" /> -->
+            <div class="shot__img shot__img--1" aria-hidden="true"></div>
+          </button>
+
+          <!-- FOTO 2 (padrão) -->
+          <button class="shot" type="button" data-shot aria-label="Abrir foto 2">
+            <!-- Substitua por: <img src="Imagens/galeria/foto-2.jpg" class="shot__img" alt="Descrição" /> -->
+            <div class="shot__img shot__img--2" aria-hidden="true"></div>
+          </button>
+
+          <!-- FOTO 3 (larga — use para fotos em paisagem) -->
+          <button class="shot shot--wide" type="button" data-shot aria-label="Abrir foto 3">
+            <!-- Substitua por: <img src="Imagens/galeria/foto-3.jpg" class="shot__img" alt="Descrição" /> -->
+            <div class="shot__img shot__img--3" aria-hidden="true"></div>
+          </button>
+
+          <!-- FOTO 4 (padrão) -->
+          <button class="shot" type="button" data-shot aria-label="Abrir foto 4">
+            <!-- Substitua por: <img src="Imagens/galeria/foto-4.jpg" class="shot__img" alt="Descrição" /> -->
+            <div class="shot__img shot__img--4" aria-hidden="true"></div>
+          </button>
+
+          <!-- FOTO 5 (alta — use para fotos em retrato) -->
+          <button class="shot shot--tall" type="button" data-shot aria-label="Abrir foto 5">
+            <!-- Substitua por: <img src="Imagens/galeria/foto-5.jpg" class="shot__img" alt="Descrição" /> -->
+            <div class="shot__img shot__img--5" aria-hidden="true"></div>
+          </button>
+
+          <!-- FOTO 6 (padrão) -->
+          <button class="shot" type="button" data-shot aria-label="Abrir foto 6">
+            <!-- Substitua por: <img src="Imagens/galeria/foto-6.jpg" class="shot__img" alt="Descrição" /> -->
+            <div class="shot__img shot__img--6" aria-hidden="true"></div>
+          </button>
+
+          <!-- FOTO 7 (larga) -->
+          <button class="shot shot--wide" type="button" data-shot aria-label="Abrir foto 7">
+            <!-- Substitua por: <img src="Imagens/galeria/foto-7.jpg" class="shot__img" alt="Descrição" /> -->
+            <div class="shot__img shot__img--7" aria-hidden="true"></div>
+          </button>
+
+          <!-- FOTO 8 (padrão) -->
+          <button class="shot" type="button" data-shot aria-label="Abrir foto 8">
+            <!-- Substitua por: <img src="Imagens/galeria/foto-8.jpg" class="shot__img" alt="Descrição" /> -->
+            <div class="shot__img shot__img--8" aria-hidden="true"></div>
+          </button>
+
+          <!-- ➕ ADICIONAR MAIS FOTOS: copie e cole um dos blocos acima aqui
+               Lembre de trocar o número do aria-label e da class shot__img--N
+          <button class="shot" type="button" data-shot aria-label="Abrir foto 9">
+            <img src="Imagens/galeria/foto-9.jpg" class="shot__img" alt="Descrição da foto" />
+          </button>
+          -->
+
+        </div><!-- /masonry -->
+
+        <!-- LIGHTBOX — popup que abre ao clicar em uma foto
+             Não edite esta parte — ela funciona automaticamente. -->
+        <dialog class="lightbox" id="lightbox" aria-label="Foto ampliada">
+          <div class="lightbox__card">
+            <button class="lightbox__close" type="button" id="lightbox-close" aria-label="Fechar foto">✕</button>
+            <div class="lightbox__media" id="lightbox-media"></div>
+          </div>
+        </dialog>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SEÇÃO 6 — AGENDA 2025 (calendário anual)
+         ============================================================
+         COMO ADICIONAR EVENTOS:
+           No arquivo app.js, procure o array GTF_EVENTS (marcado
+           com o comentário "ADICIONE SEUS EVENTOS AQUI").
+           Adicione objetos no formato:
+             { date: '2025-MM-DD', title: 'Nome do evento', local: 'Local' }
+           Exemplo:
+             { date: '2025-09-15', title: 'Amor Universal', local: 'Centro Espírita XYZ' }
+
+           O calendário atualiza automaticamente com os pontos coloridos.
+         ============================================================ -->
+    <section id="agenda" class="section">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <p class="section__tag">Programação</p>
+          <h2>Agenda 2025</h2>
+          <p class="section__sub">Acompanhe nossas apresentações e eventos. Clique em um dia marcado para ver os detalhes.</p>
+        </div>
+
+        <!-- O calendário é gerado automaticamente pelo JavaScript -->
+        <div class="calendar-grid" id="calendar-2025" data-reveal aria-label="Calendário 2025">
+          <!-- O JS preenche aqui -->
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SEÇÃO 7 — APOIE O GRUPO
+         ============================================================
+         CHAVE PIX:
+           No app.js, procure GTF_PIX_KEY e troque pelo valor correto.
+           Ou edite diretamente o texto no span#pix-key abaixo.
+
+         VALORES DE IMPACTO:
+           Edite os blocos .impact__item abaixo com os valores reais.
+         ============================================================ -->
+    <section id="apoie" class="section section--alt">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <p class="section__tag">Contribua</p>
+          <h2>Apoie o GTF</h2>
+          <p class="section__sub">Sua contribuição mantém a arte viva e a comunidade transformada.</p>
+        </div>
+
+        <div class="support__grid">
+          <div class="card card--soft" data-reveal>
+            <h3>Transparência</h3>
+            <p>
+              O GTF é uma associação sem fins lucrativos. Todo apoio recebido é investido diretamente em produção: figurinos, cenografia, transporte, materiais e manutenção das sedes. Acreditamos na transparência e sempre que possível comunicamos o uso dos recursos à nossa comunidade.
+            </p>
+
+            <div class="pix-block">
+              <p class="pix-label">Doe via Pix</p>
+              <!-- CHAVE PIX: edite o texto abaixo ou altere GTF_PIX_KEY no app.js -->
+              <div class="pix-row">
+                <code class="pix-key" id="pix-key">grupoteatrofamilia@gmail.com</code>
+                <button class="btn btn--accent" type="button" id="copy-pix">Copiar chave</button>
+              </div>
+              <p class="pix-status" id="pix-status" role="status" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="card card--glow" data-reveal>
+            <h3>Por que apoiar?</h3>
+            <ul class="support__list">
+              <li>Mais espetáculos para a comunidade</li>
+              <li>Manutenção da Biblioteca Cláudia Anastácia</li>
+              <li>Apoio ao Projeto Obra do Berço</li>
+              <li>Formação artística para crianças e jovens</li>
+              <li>Estruturação da 2ª Sede — Lar Jesus Menino</li>
+            </ul>
+
+            <!-- VALORES DE IMPACTO: edite os números e descrições abaixo -->
+            <div class="impact__grid">
+              <div class="impact__item">
+                <span class="impact__value">R$ 50</span>
+                <span class="impact__desc">materiais de cena</span>
+              </div>
+              <div class="impact__item">
+                <span class="impact__value">R$ 150</span>
+                <span class="impact__desc">figurinos</span>
+              </div>
+              <div class="impact__item">
+                <span class="impact__value">R$ 300</span>
+                <span class="impact__desc">transporte</span>
+              </div>
+            </div>
+
+            <a class="btn btn--outline" href="#contato">Parcerias e editais →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SEÇÃO 8 — CONTATO
+         ============================================================
+         INFORMAÇÕES DE CONTATO:
+           Edite os links e textos abaixo conforme necessário.
+           Instagram: troque o href para seu perfil real
+           WhatsApp: troque o número no href e no texto visível
+           Endereço: edite o parágrafo dentro de .contact__address
+         ============================================================ -->
+    <section id="contato" class="section">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <p class="section__tag">Fale conosco</p>
+          <h2>Fale com a Família</h2>
+          <p class="section__sub">Convites, parcerias, voluntariado — nossa porta está sempre aberta.</p>
+        </div>
+
+        <div class="contact__grid">
+          <div class="card card--soft contact__info" data-reveal>
+            <h3>Como nos encontrar</h3>
+
+            <div class="contact__links">
+              <!-- INSTAGRAM: troque o href pelo seu perfil -->
+              <a class="contact__link" href="https://www.instagram.com/grupoteatrofamila" target="_blank" rel="noopener">
+                <span class="contact__icon">📸</span>
+                <span>@grupoteatrofamila</span>
+              </a>
+              <!-- E-MAIL: troque pelo e-mail real -->
+              <a class="contact__link" href="mailto:grupoteatrofamilia@gmail.com">
+                <span class="contact__icon">✉️</span>
+                <span>grupoteatrofamilia@gmail.com</span>
+              </a>
+              <!-- WHATSAPP: troque 5562998339739 pelo seu número (código do país + DDD + número, sem espaços) -->
+              <a class="contact__link" href="https://wa.me/5562998339739" target="_blank" rel="noopener">
+                <span class="contact__icon">💬</span>
+                <span>(62) 99833-9739</span>
+              </a>
+            </div>
+
+            <!-- ENDEREÇO: edite o texto abaixo -->
+            <div class="contact__address">
+              <p class="contact__addr-label">📍 1ª Sede</p>
+              <p>Av. Marechal Rondon, Qd. 282 Lt. 25<br>Jardim Buriti Sereno<br>Aparecida de Goiânia – GO</p>
+            </div>
+          </div>
+
+          <!-- FORMULÁRIO DE CONTATO -->
+          <form class="card card--soft contact__form" id="contact-form" data-reveal novalidate>
+            <h3>Enviar mensagem</h3>
+
+            <label class="field">
+              <span class="field__label">Nome *</span>
+              <input type="text" name="nome" autocomplete="name" required placeholder="Seu nome completo" />
+            </label>
+
+            <label class="field">
+              <span class="field__label">E-mail *</span>
+              <input type="email" name="email" autocomplete="email" required placeholder="seu@email.com" />
+            </label>
+
+            <!-- TIPO DE CONTATO: adicione ou remova opções do select abaixo -->
+            <label class="field">
+              <span class="field__label">Assunto</span>
+              <select name="assunto">
+                <option value="">Selecione o assunto</option>
+                <option value="convite">Convite para apresentação</option>
+                <option value="parceria">Parceria</option>
+                <option value="voluntariado">Voluntariado</option>
+                <option value="doacao">Doação</option>
+                <option value="outro">Outro</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span class="field__label">Mensagem *</span>
+              <textarea name="mensagem" rows="5" required placeholder="Escreva sua mensagem..."></textarea>
+            </label>
+
+            <button class="btn btn--accent" type="submit">Enviar mensagem</button>
+            <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- /main -->
+
+
+  <!-- ============================================================
+       RODAPÉ
+       ============================================================
+       LOGO DO RODAPÉ: troque o emoji pelo seguinte se tiver logo:
+         <img src="Imagens/logo-gtf.jpg" alt="GTF" class="footer__logo" />
+
+       REDES SOCIAIS: edite os hrefs abaixo
+       TAGLINE: edite o texto da <p class="footer__tagline">
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <!-- LOGO NO RODAPÉ -->
+        <span class="footer__icon" aria-hidden="true">🎭</span>
+        <span class="footer__name">GTF</span>
+      </div>
+
+      <div class="footer__center">
+        <p class="footer__tagline">Arte com propósito. Família que transforma.</p>
+        <p class="footer__copy">© <span id="year"></span> Grupo Teatro Família · Aparecida de Goiânia – GO</p>
+      </div>
+
+      <div class="footer__right">
+        <!-- LINKS DO RODAPÉ: troque os hrefs pelos seus -->
+        <a href="https://www.instagram.com/grupoteatrofamila" target="_blank" rel="noopener" class="footer__link">Instagram</a>
+        <a href="#inicio" class="btn btn--outline btn--small">↑ Topo</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
