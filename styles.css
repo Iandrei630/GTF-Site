@@ -719,7 +719,29 @@ main { padding-top: 80px; }
    A imagem será exibida em formato circular (border-radius: 50%)
    com object-fit: cover, então qualquer tamanho funciona.
    Fotos quadradas ou retrato ficam melhor.
+   
+   ========== COMO AJUSTAR O ÂNGULO DE CADA FOTO ==========
+   
+   Para cada integrante, adicione uma das classes abaixo na tag <img>:
+   
+   EXEMPLO:
+   <img src="foto.jpg" class="member__photo photo-ajuste-1" alt="Nome" />
+   
+   Ou use as classes pré-definidas:
+   - photo-center   → centraliza (padrão)
+   - photo-up       → foca na parte de cima
+   - photo-down     → foca na parte de baixo
+   - photo-left     → foca na esquerda
+   - photo-right    → foca na direita
+   - photo-up-left  → canto superior esquerdo
+   - photo-up-right → canto superior direito
+   - photo-down-left → canto inferior esquerdo
+   
+   Para ajuste CUSTOMIZADO, use photo-custom e defina no CSS:
+   .photo-custom { object-position: 35% 45% !important; }
+   
    ================================================================ */
+
 .members__grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -740,16 +762,85 @@ main { padding-top: 80px; }
   box-shadow: 0 12px 30px rgba(99,102,241,.15);
 }
 
-/* Foto circular do integrante */
+/* ===== FOTO DO INTEGRANTE - ESTILO BASE ===== */
 .member__photo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  width: 120px;           /* Aumentei um pouco */
+  height: 120px;          /* Mesmo tamanho = quadrado */
+  border-radius: 20%;     /* Redondo igual WhatsApp */
   margin: 0 auto 14px;
-  border: 2px solid var(--border);
-  overflow: hidden;
-  object-fit: cover; /* garante que imagens reais fiquem bem */
+  border: 2px solid var(--accent-border);
+  object-fit: cover;      /* Preenche sem distorcer */
+  object-position: center center; /* Posição padrão (centro) */
+  display: block;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  background: var(--bg-card);
 }
+
+/* Efeito hover na foto */
+.member:hover .member__photo {
+  transform: scale(1.02);
+  border-color: var(--accent);
+}
+
+/* ===== CLASSES PRÉ-DEFINIDAS PARA AJUSTE RÁPIDO ===== */
+/* Use estas classes no HTML: class="member__photo photo-center" */
+
+/* Centro (padrão) */
+.photo-center { object-position: 50% 50% !important; }
+
+/* Movimento vertical */
+.photo-up    { object-position: 50% 25% !important; }  /* Foca no terço superior */
+.photo-down  { object-position: 50% 75% !important; }  /* Foca no terço inferior */
+
+/* Movimento horizontal */
+.photo-left  { object-position: 25% 50% !important; }  /* Foca na esquerda */
+.photo-right { object-position: 75% 50% !important; }  /* Foca na direita */
+
+/* Cantos */
+.photo-up-left   { object-position: 25% 25% !important; }
+.photo-up-right  { object-position: 75% 25% !important; }
+.photo-down-left { object-position: 25% 75% !important; }
+.photo-down-right{ object-position: 75% 75% !important; }
+
+/* Ajustes intermediários (mais precisos) */
+.photo-up-10   { object-position: 50% 10% !important; }  /* muito no topo */
+.photo-up-20   { object-position: 50% 20% !important; }
+.photo-up-30   { object-position: 50% 30% !important; }
+.photo-down-70 { object-position: 50% 70% !important; }
+.photo-down-80 { object-position: 50% 80% !important; }
+.photo-down-90 { object-position: 50% 90% !important; }
+
+/* Ajustes horizontais precisos */
+.photo-left-30  { object-position: 30% 50% !important; }
+.photo-left-40  { object-position: 40% 50% !important; }
+.photo-right-60 { object-position: 60% 50% !important; }
+.photo-right-70 { object-position: 70% 50% !important; }
+
+/* ===== PARA AJUSTE MANUAL PERSONALIZADO ===== */
+/* Adicione a classe "photo-custom" e descomente/edite a linha abaixo */
+.photo-custom { 
+  /* EDITAR AQUI: mude os valores % para cada foto */
+  /* primeiro % = horizontal, segundo % = vertical */
+  object-position: 45% 40% !important; 
+}
+
+/* ===== AJUSTES POR INTEGRANTE (USANDO nth-child) ===== */
+/* Descomente e ajuste os valores conforme necessário */
+
+
+.member:nth-child(1) .member__photo { object-position: 50% 40% !important; }
+.member:nth-child(2) .member__photo { object-position: 50% 25% !important; }
+.member:nth-child(3) .member__photo { object-position: 55% 50% !important; }
+.member:nth-child(4) .member__photo { object-position: 50% 45% !important; }
+.member:nth-child(5) .member__photo { object-position: 60% 40% !important; }
+.member:nth-child(6) .member__photo { object-position: 50% 35% !important; }
+.member:nth-child(7) .member__photo { object-position: 50% 15% !important; }
+.member:nth-child(8) .member__photo { object-position: 50% 15% !important; }
+.member:nth-child(9) .member__photo { object-position: 48% 42% !important; }
+.member:nth-child(10) .member__photo { object-position: 50% 20% !important; }
+.member:nth-child(11) .member__photo { object-position: 50% 20% !important; }
+.member:nth-child(12) .member__photo { object-position: 80% 20% !important; }
+
 
 /* Placeholders coloridos (substituídos quando a foto real for inserida) */
 .member__photo--1  { background: linear-gradient(135deg, #6366f1, #4f46e5); }
@@ -776,6 +867,24 @@ main { padding-top: 80px; }
   color: var(--text-muted);
 }
 
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 1024px) {
+  .members__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .members__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .member__photo {
+    width: 100px;
+    height: 100px;
+  }
+}
 
 /* ================================================================
    9. ESPETÁCULOS — CARDS E MODAL/POPUP
