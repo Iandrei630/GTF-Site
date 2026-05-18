@@ -839,7 +839,7 @@ main { padding-top: 80px; }
 .member:nth-child(9) .member__photo { object-position: 48% 42% !important; }
 .member:nth-child(10) .member__photo { object-position: 50% 20% !important; }
 .member:nth-child(11) .member__photo { object-position: 50% 20% !important; }
-.member:nth-child(12) .member__photo { object-position: 80% 20% !important; }
+.member:nth-child(12) .member__photo { object-position: 50% 38% !important; }
 
 
 /* Placeholders coloridos (substituídos quando a foto real for inserida) */
