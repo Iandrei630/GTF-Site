@@ -1326,6 +1326,99 @@ main { padding-top: 80px; }
 
 
 /* ================================================================
+   11b. LISTA DE EVENTOS (evento, data, horário, local, contato)
+   ================================================================ */
+.agenda-list__head {
+  margin: 48px 0 20px;
+}
+.agenda-list__head h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.agenda-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.agenda-list__empty {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.agenda-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color .2s var(--ease-fast);
+}
+.agenda-item:hover { border-color: var(--border-hover); }
+
+.agenda-item__date {
+  flex: none;
+  width: 56px;
+  text-align: center;
+  color: var(--accent);
+}
+.agenda-item__day {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+}
+.agenda-item__month {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.agenda-item__body { flex: 1; min-width: 0; }
+
+.agenda-item__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 8px;
+}
+
+.agenda-item__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.agenda-item__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.agenda-icon {
+  font-style: normal;
+  font-size: 13px;
+}
+
+@media (max-width: 560px) {
+  .agenda-item { align-items: flex-start; }
+  .agenda-item__meta { flex-direction: column; gap: 4px; }
+}
+
+
+/* ================================================================
    12. APOIE / PIX
    ================================================================ */
 .support__grid {
