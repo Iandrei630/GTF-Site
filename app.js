@@ -321,29 +321,38 @@
      ================================================================
      COMO ADICIONAR SEUS EVENTOS:
        Edite o array GTF_EVENTS abaixo. Cada evento é um objeto com:
-         date  → 'YYYY-MM-DD'  (ano-mês-dia, sempre com zeros)
-         title → nome do evento
-         local → local do evento
+         date    → 'YYYY-MM-DD'  (ano-mês-dia, sempre com zeros)
+         title   → nome do evento
+         local   → local do evento
+         horario → horário do evento (opcional, ex: '19h30')
+         contato → pessoa/telefone responsável (opcional)
 
      Exemplo:
-       { date: '2025-09-15', title: 'Amor Universal', local: 'Centro Espírita ABC' }
+       { date: '2025-09-15', title: 'Amor Universal', local: 'Centro Espírita ABC',
+         horario: '20h', contato: 'Marta - (62) 99999-0000' }
 
-     O calendário marca automaticamente os dias com eventos
-     e mostra um tooltip ao passar o mouse.
+     O calendário marca automaticamente os dias com eventos e mostra um
+     tooltip ao passar o mouse. Logo abaixo do calendário, a lista de
+     eventos (#agenda-lista) mostra os mesmos dados em formato de cards,
+     ordenados por data — inclusive os que ainda não têm horário/contato.
      ================================================================ */
 
   // ▼▼▼ ADICIONE SEUS EVENTOS AQUI ▼▼▼
   const GTF_EVENTS = [
-    { date: '2025-08-14', title: 'O Som das Velas',          local: 'Teatro Municipal — 19h30' },
-    { date: '2025-09-03', title: 'Troca-se uma Esperança',   local: 'Centro Cultural — 20h'    },
-    { date: '2025-10-21', title: 'Apresentação GTF',         local: 'A confirmar'               },
+    { date: '2025-08-14', title: 'O Som das Velas',        local: 'Teatro Municipal',   horario: '19h30', contato: '' },
+    { date: '2025-09-03', title: 'Troca-se uma Esperança', local: 'Centro Cultural',     horario: '20h',   contato: '' },
+    { date: '2025-10-21', title: 'Apresentação GTF',       local: 'A confirmar',         horario: '',      contato: '' },
     // Adicione mais eventos aqui no mesmo formato:
-    // { date: '2025-MM-DD', title: 'Nome do evento', local: 'Local do evento' },
+    // { date: '2025-MM-DD', title: 'Nome do evento', local: 'Local do evento',
+    //   horario: '19h', contato: 'Nome - telefone' },
   ];
   // ▲▲▲ FIM DOS EVENTOS ▲▲▲
 
   const calContainer = $('#calendar-2025');
   if (calContainer) renderAnnualCalendar(2025, calContainer, GTF_EVENTS);
+
+  const agendaListContainer = $('#agenda-lista');
+  if (agendaListContainer) renderAgendaList(agendaListContainer, GTF_EVENTS);
 
   function renderAnnualCalendar(year, container, events) {
     const monthNames = [
@@ -409,7 +418,7 @@
         if (eventMap[dateStr]) {
           classes += ' cal-day--event';
           const tooltipText = eventMap[dateStr]
-            .map(ev => `${ev.title} · ${ev.local}`)
+            .map(ev => `${ev.title} · ${ev.local}${ev.horario ? ' · ' + ev.horario : ''}`)
             .join(' / ');
           dayEl.setAttribute('data-tooltip', tooltipText);
           dayEl.setAttribute('role', 'button');
@@ -424,6 +433,57 @@
 
       container.appendChild(monthEl);
     });
+  }
+
+
+  /* ================================================================
+     9b. LISTA DE EVENTOS (registro completo: evento, data, horário,
+         local e contato)
+     ================================================================
+     Usa o mesmo array GTF_EVENTS do calendário acima — não precisa
+     cadastrar os eventos duas vezes. Eventos sem data definida ainda
+     não aparecem aqui (edite a data assim que confirmar).
+     Não precisa mexer aqui.
+     ================================================================ */
+  function renderAgendaList(container, events) {
+    const monthNamesAbbr = [
+      'jan','fev','mar','abr','mai','jun',
+      'jul','ago','set','out','nov','dez'
+    ];
+
+    const ordenados = [...events]
+      .filter(ev => ev.date)
+      .sort((a, b) => a.date.localeCompare(b.date));
+
+    if (!ordenados.length) {
+      container.innerHTML = '<p class="agenda-list__empty">Nenhum evento cadastrado no momento.</p>';
+      return;
+    }
+
+    container.innerHTML = ordenados.map(ev => {
+      const [year, month, day] = ev.date.split('-');
+      const dataFmt = `${day} ${monthNamesAbbr[Number(month) - 1]} ${year}`;
+      const local   = ev.local && ev.local.trim() ? ev.local : 'A confirmar';
+      const horario = ev.horario && ev.horario.trim() ? ev.horario : '—';
+      const contato = ev.contato && ev.contato.trim() ? ev.contato : '—';
+
+      return `
+        <div class="agenda-item" data-reveal>
+          <div class="agenda-item__date">
+            <span class="agenda-item__day">${day}</span>
+            <span class="agenda-item__month">${monthNamesAbbr[Number(month) - 1]}</span>
+          </div>
+          <div class="agenda-item__body">
+            <h3 class="agenda-item__title">${ev.title}</h3>
+            <div class="agenda-item__meta">
+              <span class="agenda-item__tag"><i class="agenda-icon">⏰</i>${horario}</span>
+              <span class="agenda-item__tag"><i class="agenda-icon">📍</i>${local}</span>
+              <span class="agenda-item__tag"><i class="agenda-icon">☎</i>${contato}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
   }
 
 
